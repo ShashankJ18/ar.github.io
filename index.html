@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AR Shoe Experience</title>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    #ar-container {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+  <div id="ar-container">
+    <a-scene
+      embedded
+      arjs="sourceType: webcam; trackingMethod: best;"
+    >
+      <a-assets>
+        <a-asset-item id="shoe-model" src="scene.gltf"></a-asset-item>
+      </a-assets>
+
+      <a-entity
+        gltf-model="#shoe-model"
+        scale="0.1 0.1 0.1"
+        position="0 0 -5"
+      ></a-entity>
+
+      <a-entity camera></a-entity>
+    </a-scene>
+  </div>
+</body>
+</html>
